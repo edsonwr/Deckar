@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Navbar</title>
+	<link rel="stylesheet" href="style.css"> <!-- css da nav -->
+	<link rel="stylesheet" href="carrossel.css"> <!-- css do carrosel -->
+	<script src="mobile-navbar.js" defer></script> <!-- js da nav -->
+	<script src="carrossel.js" defer></script> <!-- js do carrosel -->
+</head>
+
+<body class="bodyY">
+	<header>
+		<nav>
+			<a class="logo" href="#">Antiquites Mike Decker</a>
+			<div class="mobile-menu">
+				<div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+			</div>
+			<ul class="nav-list">
+				<li><a href="#">Accueil</a></li>
+				<li><a href="index.html">Meubles</a></li>
+				<li><a href="#">Produits</a></li>
+				<li><a href="#">Sugestion</a></li>
+		</nav>
+	</header>
+	<main>
+		<div class="content">
+			<div class="magasin">
+				<img src="deckar.jpg" alt="magasin">
+				<p>Antiquités Mike Decker" est une boutique charmante qui propose une collection exceptionnelle de meubles, d'objets et d'art anciens. Située dans un bâtiment plein de charme, la boutique est un véritable paradis pour les amateurs d'antiquités. Avec des meubles soigneusement restaurés, des objets curieux et des œuvres d'art anciennes, "Antiquités Mike Decker" invite les visiteurs à explorer le charme et l'histoire des pièces anciennes. L'équipe passionnée de la boutique est prête à partager des histoires et des connaissances sur chaque article, faisant de la visite une expérience enrichissante et inspirante pour les amateurs d'antiquités. Venez découvrir des trésors du passé et enrichir votre espace et votre collection chez "Antiquités Mike Decker</p>
+			</div>
+
+			<div class="container">
+				<button class="arrow-left control" arial-label="Previous image"><</button>
+				<button class="arrow-right control" arial-label="Next image">></button>
+
+				<div class="gallery-wrapper">
+					<div class="gallery">
+						<img src="Meubles.jpeg" alt="Meubles" class="item current-item">
+						<img src="Art.jpeg" alt="Art" class="item current-item">
+						<img src="Decoration.jpeg" alt="Decoration" class="item current-item">
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</main>
+</body>
+
+</html>
