@@ -1,0 +1,396 @@
+
+
+
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root{
+   /*========== Colors ==========*/
+   /*Color mode HSL(hue, saturation, lightness)*/
+   --first-color: hsl(82, 60%, 28%);
+   --title-color: hsl(0, 0%, 15%);
+   --text-color: hsl(0, 0%, 35%);
+   --body-color: hsl(199, 36%, 41%);
+   --container-color: hsl(0, 0%, 88%);
+
+   /*========== Font and typography ==========*/
+   /*.5rem = 8px | 1rem = 16px ...*/
+   --body-font: 'Poppins', sans-serif;
+   --h2-font-size: 1.20rem;
+   --small-font-size: .813rem;
+
+   // Responsive typography
+   @media screen and (min-width: 1120px){
+      --h2-font-size: 1.5rem;
+      --small-font-size: .875rem;
+   }
+}
+
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	font-family: var(--body-font);
+	color: var(--text-color);
+    
+  background-position: 100%;
+  height: 100vh;
+    width: 100%;
+    background-repeat: repeat;
+    background-position-y: right center;
+    background-attachment: f;
+  
+
+
+}
+.fundo{
+  
+  
+  background-repeat: no-repeat;
+  background-position: center center;
+  
+
+
+}
+
+img{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+
+@media screen and (max-width: 340px){
+    .container{
+       margin-inline: 1rem;
+    }
+ 
+    .card__data{
+       width: 250px;
+       padding: 1rem;
+    }
+ }
+ 
+ 
+ @media screen and (min-width: 768px){
+    .card__container{
+       grid-template-columns: repeat(2, 1fr);
+       column-gap: 1.5rem;
+      
+    }
+ }
+ 
+ @media screen and (min-width: 1120px){
+    .container{
+       height: 100vh;
+    }
+ 
+    .card{
+       &__container{
+          grid-template-columns: repeat(1, 4fr);
+       }
+       &__img{
+          width: 348px;
+       }
+       &__data{
+          width: 316px;
+          padding-inline: 2.5rem;
+       }
+    }
+ }
+
+
+/*=============== CARD ===============*/
+.container {
+ 
+    
+    display: grid;
+    place-items: center;
+    margin-inline: 1.5rem;
+    padding-block: 5rem;
+  }
+  
+  .card__container {
+    display: grid;
+    row-gap: 3.5rem;
+    margin-top: 100px;
+  }
+  
+  .card__article {
+    position: relative;
+    overflow: hidden;
+    
+  }
+  
+  .card__img {
+    width: 328px;
+    border-radius: 1.5rem;
+    z-index: 2;
+  }
+  
+  .card__data {
+    width: 280px;
+    background-color: var(--container-color);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    border-radius: 1rem;
+    position: absolute;
+    bottom: -7rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 15s 5s;
+    z-index: 2;
+  }
+  
+  .card__description {
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: .25rem;
+
+  }
+  
+  .card__title {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    color: var(--title-color);
+    margin-bottom: .75rem;
+  }
+  
+  .card__button {
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    color: var(--first-color);
+  }
+  
+  .card__button:hover {
+    text-decoration: underline;
+  }
+  
+ 
+  .card__article:hover .card__data {
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .5s;
+  }
+  
+  .card__article:hover {
+    animation: remove-overflow 2s forwards;
+  }
+  
+  .card__article:not(:hover) {
+    animation: show-overflow 3s forwards;
+  }
+  
+  .card__article:not(:hover) .card__data {
+    animation: remove-data 1s forwards;
+  }
+  
+  /* Card animation */
+  @keyframes show-data {
+    50% {
+      transform: translateY(-10rem);
+    }
+    100% {
+      transform: translateY(-7rem);
+    }
+  }
+  
+  @keyframes remove-overflow {
+    to {
+      overflow: initial;
+    }
+  }
+  
+  @keyframes remove-data {
+    0% {
+      transform: translateY(-7rem);
+    }
+    50% {
+      transform: translateY(-10rem);
+    }
+    100% {
+      transform: translateY(.5rem);
+    }
+  }
+  
+  @keyframes show-overflow {
+    0% {
+      overflow: initial;
+      pointer-events: none;
+    }
+    50% {
+      overflow: hidden;
+    }
+  }
+  
+  /*=============== BREAKPOINTS ===============*/
+  /* For small devices */
+  @media screen and (max-width: 340px) {
+    .container {
+      margin-inline: 1rem;
+    }
+  
+    .card__data {
+      width: 250px;
+      padding: 1rem;
+    }
+  }
+  
+  /* For medium devices */
+  @media screen and (min-width: 768px) {
+    .card__container {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.5rem;
+    }
+  }
+  
+  /* For large devices */
+  @media screen and (min-width: 1120px) {
+    .container {
+      z-index: 2;
+      height: 100vh;
+    }
+  
+    .card__container {
+      z-index: 2;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card__img {
+      width: 348px;
+    }
+    .card__data {
+      width: 316px;
+      padding-inline: 2.5rem;
+    }
+}
+
+
+/* codigo telefone segunda pagina */
+
+a {
+	color: #c6c6c6;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+a:hover{
+	opacity: 0.7;
+}
+
+
+.content{
+	display: flex;
+	justify-content: center center;
+	align-items: center;
+	flex-direction: column;
+	background: RGB(35, 35, 46, 0.7);
+	width: 80vw;
+	padding:30px;
+	text-align: justify;
+}
+
+.magasin img{
+	height: 600px;
+	width: 500px;
+}
+
+.magasin{
+	flex-direction: column;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: top;
+}
+
+.magasin p{
+	font-size: 24px;
+	padding: 15px;
+	color: #c6c6c6;
+}
+
+
+.logo{
+	font-size: 24px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: #fa3d3b;
+
+}
+
+
+nav{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-family: system-ui,-apple-system, Helvetica, Arial, sans-serif;
+	background: #23232e;
+	height: 8vh;
+}
+
+main {
+	background: url("landscape.jpg") no-repeat center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	display: flex;
+	justify-content: center;
+	min-height: 92vh;
+}
+
+.nav-list{
+	list-style: none;
+	display: flex;
+}
+
+.nav-list li{
+	letter-spacing: 3px;
+	margin-left: 32px;
+}
+.mobile-menu{
+	cursor: pointer;
+	display: none;
+
+}
+
+.mobile-menu div{
+	width: 32px;
+	height: 2px;
+	background: #fff;
+	margin: 8px;
+	transition: 0.3s;
+}
+
+@media (max-width: 999px){
+	body{
+		overflow-x: hidden;
+	}
+
+
+	.nav-list{
+		position: absolute;
+		top:8vh;
+		right: 0;
+		width: 100vw;
+		height: 92vh;
+		background: rgb(35, 35, 46, 1.0);
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		transform: translateX(100%);
+		transition: transform 0.3s ease-in;
+	}
+	.nav-list li{
+		margin-left: 0;
+		opacity: 0;
+	}
+	.mobile-menu{
+		display: block;
+	}
+}
